@@ -1,19 +1,25 @@
-.text-center {
-  text-align: center;
-}
-
-ul {
-  list-style-type: none;
+nav, nav li {
   margin: 0;
   padding: 0;
 }
-
-li {
-  float: left;
+nav {
+  background: rgb(46,95,122);
+  text-align: center;
 }
-
-a {
+nav li {
+  display: inline-block;
+  text-align: center;
+}
+nav a {
   display: block;
-  padding: 8px;
-  background-color: #dddddd;
+  padding: 3px 15px;
+  color: #fff;
+  text-decoration: none;
+}
+nav a:hover {
+  background: rgb(96,145,172);
+}
+footer {
+    margin: 0 auto;
+    text-align: center;
 }

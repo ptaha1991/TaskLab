@@ -6,10 +6,10 @@ from .models import Project, Todo
 class ProjectModelSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = Project
-        fields = "__all__"
+        fields = ("id", "name", "link")
 
 
 class TodoModelSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = Todo
-        fields = "__all__"
+        fields = ("id", "project", "text", "created_user", "active")
