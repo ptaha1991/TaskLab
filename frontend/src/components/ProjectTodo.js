@@ -5,7 +5,7 @@ const TodoItem = ({item}) => {
     return (
     <tr>
         <td>
-            {item.project.name}
+            {item.project}
         </td>
         <td>
             {item.text}
@@ -13,16 +13,13 @@ const TodoItem = ({item}) => {
         <td>
             {item.created_user}
         </td>
-        <td>
-            {item.active}
-        </td>
     </tr>
     )
 }
 
 const ProjectTodoList = ({items}) => {
     let { id } = useParams();
-    let filtered_items = items.filter((item) => item.project.id == id)
+    let filtered_items = items.filter((item) => item.project == id)
     return (
         <table>
             <th>
@@ -33,9 +30,6 @@ const ProjectTodoList = ({items}) => {
             </th>
             <th>
                 Created user
-            </th>
-            <th>
-                Active
             </th>
            {filtered_items.map((item) => <TodoItem item={item} />)}
         </table>

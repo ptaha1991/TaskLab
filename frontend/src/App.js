@@ -21,50 +21,78 @@ const NotFound404 = ({ location }) => {
 class App extends React.Component {
    constructor(props) {
        super(props)
-       const user1 = {
-                first_name: 'Фёдор',
-                last_name: 'Достоевский',
-                email: 1821
-            }
-       const user2 = {
-                first_name: 'Фёдоeewр',
-                last_name: 'Достоjk',
-                email: 18219
-            }
-       const users = [user1, user2]
-       const project1 = {
-                id: 1,
-                name: 'proj',
-                link: 'Достоевский',
-                users: 1
-            }
-       const project2 = {
-                id: 2,
-                name: 'proj2',
-                link: 'Достоевский',
-                users: 2
-            }
-       const projects = [project1, project2]
-       const todo1 = {
-                project: project1,
-                text: 'Достоевский',
-                created_user: 1821,
-                active: 1
-            }
-       const todo2 = {
-                project: project2,
-                text: 'Достоевский',
-                created_user: 1821,
-                active: 1
-            }
-       const todos = [todo1, todo2]
+//       const user1 = {
+//                first_name: 'Фёдор',
+//                last_name: 'Достоевский',
+//                email: 1821
+//            }
+//       const user2 = {
+//                first_name: 'Фёдоeewр',
+//                last_name: 'Достоjk',
+//                email: 18219
+//            }
+//       const users = [user1, user2]
+//       const project1 = {
+//                id: 1,
+//                name: 'proj',
+//                link: 'Достоевский',
+//                users: 1
+//            }
+//       const project2 = {
+//                id: 2,
+//                name: 'proj2',
+//                link: 'Достоевский',
+//                users: 2
+//            }
+//       const projects = [project1, project2]
+//       const todo1 = {
+//                project: project1,
+//                text: 'Достоевский',
+//                created_user: 1821,
+//                active: 1
+//            }
+//       const todo2 = {
+//                project: project2,
+//                text: 'Достоевский',
+//                created_user: 1821,
+//                active: 1
+//            }
+//       const todos = [todo1, todo2]
        this.state = {
-           'users': users,
-           'projects': projects,
-           'todos': todos
+           'users': [],
+           'projects': [],
+           'todos': []
        }
    }
-
+    componentDidMount() {
+        axios.get('http://127.0.0.1:8000/api/users')
+            .then(response => {
+                const users = response.data
+                    this.setState(
+                    {
+                        'users': users
+                    }
+                    )
+            }).catch(error => console.log(error));
+        axios.get('http://127.0.0.1:8000/api/projects')
+            .then(response => {
+                const projects = response.data
+                    this.setState(
+                    {
+                        'projects': projects
+                    }
+                    )
+            }).catch(error => console.log(error));
+        axios.get('http://127.0.0.1:8000/api/todos')
+            .then(response => {
+                const todos = response.data
+                    this.setState(
+                    {
+                        'todos': todos
+                    }
+                    )
+            }).catch(error => console.log(error))
+    }
 
    render () {
        return (
