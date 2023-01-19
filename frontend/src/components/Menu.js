@@ -1,15 +1,24 @@
 import React from 'react';
 
 import './style.css';
+import {Link} from 'react-router-dom'
 
 function Menu () {
     return (
+          <nav>
             <ul>
-                <li><a href="#" >Home</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">About</a></li>
+                <li>
+                    <Link to='/projects'>Projects</Link>
+                </li>
+                <li>
+                    <Link to='/users'>Users</Link>
+                </li>
+                <li>
+                    <Link to='/todos'>Todos</Link>
+                </li>
             </ul>
+          </nav>
+
     )
 }
 
