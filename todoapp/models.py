@@ -15,4 +15,4 @@ class Todo(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_user = models.ForeignKey(User, on_delete=models.CASCADE)
-    active = models.BooleanField(default=True)
+    active = models.BooleanField(default=True, blank=False)

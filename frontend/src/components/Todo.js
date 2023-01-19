@@ -12,6 +12,11 @@ const TodoItem = ({item}) => {
         <td>
             {item.created_user}
         </td>
+        <td>
+            {item.active
+            ? "yes"
+            : "no" }
+        </td>
     </tr>
     )
 }
@@ -28,6 +33,9 @@ const TodoList = ({items}) => {
             <th>
                 Created user
             </th>
+            <td>
+                Active
+            </td>
            {items.map((item) => <TodoItem item={item} />)}
         </table>
     )

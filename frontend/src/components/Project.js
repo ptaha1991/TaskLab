@@ -13,6 +13,9 @@ const ProjectItem = ({item}) => {
         <td>
             {item.link}
         </td>
+        <td>
+            {item.users}
+        </td>
     </tr>
     )
 }
@@ -29,6 +32,9 @@ const ProjectList = ({items}) => {
             <th>
                 Link
             </th>
+            <td>
+                Users
+        </td>
            {items.map((item) => <ProjectItem item={item} />)}
         </table>
     )
