@@ -33,9 +33,9 @@ const TodoList = ({items}) => {
             <th>
                 Created user
             </th>
-            <td>
+            <th>
                 Active
-            </td>
+            </th>
            {items.map((item) => <TodoItem item={item} />)}
         </table>
     )

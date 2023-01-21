@@ -32,9 +32,9 @@ const ProjectList = ({items}) => {
             <th>
                 Link
             </th>
-            <td>
+            <th>
                 Users
-        </td>
+            </th>
            {items.map((item) => <ProjectItem item={item} />)}
         </table>
     )
