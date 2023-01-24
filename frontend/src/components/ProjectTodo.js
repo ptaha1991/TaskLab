@@ -23,7 +23,7 @@ const ProjectTodoList = ({items}) => {
     return (
         <table>
             <th>
-                Project name
+                Project
             </th>
             <th>
                 Text

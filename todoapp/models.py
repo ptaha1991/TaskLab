@@ -1,12 +1,12 @@
 from django.db import models
 
-from mainapp.models import User
+from mainapp.models import CustomUser
 
 
 class Project(models.Model):
     name = models.CharField(max_length=64)
     link = models.URLField(blank=True, null=True)
-    users = models.ManyToManyField(User)
+    users = models.ManyToManyField(CustomUser)
 
 
 class Todo(models.Model):
@@ -14,5 +14,5 @@ class Todo(models.Model):
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    created_user = models.ForeignKey(User, on_delete=models.CASCADE)
-    active = models.BooleanField(default=True)
+    created_user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    active = models.BooleanField(default=True, blank=False)

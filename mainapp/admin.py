@@ -1,20 +1,40 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 
-from mainapp import models as mainapp_models
-from todoapp import models as todoapp_models
-
-
-@admin.register(mainapp_models.User)
-class UserAdmin(admin.ModelAdmin):
-    list_display = ["last_name", "first_name", "email"]
-    ordering = ["last_name"]
+from mainapp.models import CustomUser
 
 
-@admin.register(todoapp_models.Project)
-class ProjectAdmin(admin.ModelAdmin):
-    pass
+class CustomUserAdmin(UserAdmin):
+    model = CustomUser
+
+    list_display = ["username", "email", "is_active"]
+    ordering = ["-date_joined"]
+
+    fieldsets = (
+        (None, {"fields": ("username", "email", "password", "first_name", "last_name", "birthday_year")}),
+        ("Permissions", {"fields": ("is_staff", "is_active", "groups", "user_permissions")}),
+    )
+    add_fieldsets = (
+        (
+            None,
+            {
+                "classes": ("wide",),
+                "fields": (
+                    "username",
+                    "email",
+                    "password1",
+                    "password2",
+                    "first_name",
+                    "last_name",
+                    "birthday_year",
+                    "is_staff",
+                    "is_active",
+                    "groups",
+                    "user_permissions",
+                ),
+            },
+        ),
+    )
 
 
-@admin.register(todoapp_models.Todo)
-class TodoAdmin(admin.ModelAdmin):
-    pass
+admin.site.register(CustomUser, CustomUserAdmin)

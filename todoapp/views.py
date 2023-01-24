@@ -21,7 +21,7 @@ class ProjectModelViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectModelSerializer
     renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
     filterset_class = ProjectFilter
-    # pagination_class = ProjectLimitOffsetPagination
+    pagination_class = ProjectLimitOffsetPagination
 
 
 class TodoModelViewSet(viewsets.ModelViewSet):
@@ -29,7 +29,7 @@ class TodoModelViewSet(viewsets.ModelViewSet):
     serializer_class = TodoModelSerializer
     renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
     filterset_class = TodoFilter
-    # pagination_class = TodoLimitOffsetPagination
+    pagination_class = TodoLimitOffsetPagination
     # filterset_fields = {
     #     'project': ['exact'],
     #     'created_at': ['gte', 'lte']
