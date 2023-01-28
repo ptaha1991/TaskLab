@@ -3,7 +3,9 @@ import React from 'react';
 import './style.css';
 import {Link} from 'react-router-dom'
 
-function Menu () {
+
+function Menu (props) {
+
     return (
           <nav>
             <ul>
@@ -15,6 +17,9 @@ function Menu () {
                 </li>
                 <li>
                     <Link to='/todos'>Todos</Link>
+                </li>
+                <li>
+                    {props.logout}
                 </li>
             </ul>
           </nav>
