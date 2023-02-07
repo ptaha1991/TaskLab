@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "django_filters",
     "drf_yasg",
+    "graphene_django",
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,5 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.QueryParameterVersioning",
 }
+
+GRAPHENE = {"SCHEMA": "config.schema.schema"}
