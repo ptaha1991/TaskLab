@@ -3,7 +3,7 @@ from rest_framework import mixins, viewsets
 from todoapp.views import CustomDjangoModelPermission
 
 from .models import CustomUser
-from .serializers import UserModelSerializer
+from .serializers import UserModelSerializer, UserModelSerializerBase
 
 
 class UserCustomViewSet(
@@ -12,3 +12,8 @@ class UserCustomViewSet(
     queryset = CustomUser.objects.all()
     serializer_class = UserModelSerializer
     permission_classes = [CustomDjangoModelPermission]
+
+    def get_serializer_class(self):
+        if self.request.version == "2.0":
+            return UserModelSerializerBase
+        return UserModelSerializer

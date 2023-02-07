@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "todoapp",
     "corsheaders",
     "django_filters",
+    "drf_yasg",
 ]
 
 MIDDLEWARE = [
@@ -144,4 +145,5 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
+    "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.QueryParameterVersioning",
 }
